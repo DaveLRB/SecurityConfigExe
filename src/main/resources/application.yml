@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5440/postgres
+    username: postgres
+    password: 12345
+    initialization-mode: always
+    initialize: true
+    continue-on-error: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

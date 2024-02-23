@@ -1,6 +1,7 @@
 package com.secExe.secu.SecEntity;
 
 
+import com.secExe.secu.SecRole.SecRole;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import lombok.*;
 @Entity
 @Table(name = "SecTable")
 public class SecEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,8 +25,12 @@ public class SecEntity {
     @Column(nullable = false)
     private String password;
 
-    public SecEntity(String username, String password) {
+    @Enumerated(EnumType.STRING)
+    private SecRole role;
+
+    public SecEntity(String username, String password, SecRole role) {
         this.username = username;
         this.password = password;
+        this.role =role;
     }
 }
